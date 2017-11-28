@@ -4,7 +4,7 @@
 
 	Copyright (c) 2017 OMG-Engine
 
-	Subject to license described in LICENSE file
+	Subject to the license described in LICENSE file
 */
 
 #include "Scene.hpp"
