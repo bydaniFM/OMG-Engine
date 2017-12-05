@@ -26,9 +26,12 @@
     <Xml Include="src\scene.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\headers\Dispatcher.hpp" />
     <ClInclude Include="src\headers\Kernel.hpp" />
+    <ClInclude Include="src\headers\Message.hpp" />
     <ClInclude Include="src\headers\Scene.hpp" />
     <ClInclude Include="src\headers\Task.hpp" />
+    <ClInclude Include="src\headers\Variant.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
