@@ -14,6 +14,7 @@ Subject to the license described in LICENSE file
 #include <memory>
 #include <Kernel.hpp>
 #include <Entity.hpp>
+#include <Module.hpp>
 
 using namespace std;
 
@@ -29,6 +30,7 @@ namespace OMG_Engine {
 
 		Kernel kernel;
 		map< string, shared_ptr< Entity > > entities;
+		map< string, shared_ptr< Module > > modules;
 
 	public:
 
@@ -57,6 +59,8 @@ namespace OMG_Engine {
 		bool parse_scene(xml_node<>* scene_node);
 
 		bool parse_entities(xml_node<>* entities_node);
+
+		bool parse_config(xml_node<>* config_node);
 
 		bool parse_components(xml_node<>* component_tag, Entity & entity);
 

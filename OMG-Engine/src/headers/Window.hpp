@@ -1,17 +1,33 @@
+/*
+Author: Daniel Fernandez Marques
+Date: 28/11/2017
 
-// Copyright...
+Copyright (c) 2017 OMG-Engine
+
+Subject to the license described in LICENSE file
+*/
 
 #pragma once
 
 struct SDL_Window;
 
-namespace engine
+namespace OMG_Engine
 {
-
 	class Window
 	{
+	public:
+
+		enum DisplayMode
+		{
+			FULLSCREEN,
+			WINDOWED,
+			BORDERLESS
+		};
+
+	private:
 
 		SDL_Window * window;
+		DisplayMode state;
 
 	public:
 
@@ -21,8 +37,8 @@ namespace engine
 		void Close();
 		void Hide();
 		void Show();
-		void SetFullscreen(bool state);
-		void SetTitle();
+		void SetFullscreen(DisplayMode state);
+		void SetTitle(const char * title);
 		void SwapBuffers();
 
 	};

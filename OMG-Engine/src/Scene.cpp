@@ -19,7 +19,7 @@ namespace OMG_Engine {
 
 	bool Scene::load_scene(const string & scene_file_path)
 	{
-		// SE LEE EL CONTENIDO DEL ARCHIVO:
+		// Read file content
 
 		fstream xml_file(scene_file_path, fstream::in);
 
@@ -41,17 +41,17 @@ namespace OMG_Engine {
 					finished = true;
 			} while (!finished);
 
-			// SE AÑADE UN CARACTER NULO AL FINAL:
+			// Add a 0 at the end
 
 			xml_content.push_back(0);
 
-			// SE CREA EL MODELO DE DOCUMENTO (DOM):
+			// Create document model (DOM):
 
 			xml_document< > document;
 
 			document.parse< 0 >(xml_content.data());
 
-			// SE COMPRUEBA QUE EL PARSEO HA FUNCIONADO:
+			// Check if previous step worked
 
 			xml_node< > * root = document.first_node();
 
@@ -74,23 +74,26 @@ namespace OMG_Engine {
 				{
 					parse_entities(child);
 				}
-				else
-					if (string(child->name()) == "config")
-					{
-						parse_config(child);
-					}
-				...
+				else if (string(child->name()) == "config")
+				{
+					parse_config(child);
+				}
+				else if (string(child->name()) == "components")
+				{
+					//parse_components(child, [CHILD ENTITY]);
+				}
+				//...
 			}
 		}
 	}
 
 	bool Scene::parse_entities(xml_node<> * entities_node)
 	{
-		const string name;
+		const char * name;
 
 		for
 			(
-				xml_attribute<> * attribute = component_tag->first_attribute();
+				xml_attribute<> * attribute = entities_node->first_attribute();
 				attribute;
 				attribute = attribute->next_attribute()
 				)
@@ -101,7 +104,7 @@ namespace OMG_Engine {
 			}
 		}
 
-		if (name.empty()) return false;
+		if (name == "") return false;
 
 		for (xml_node<> * entity_tag = entities_node->first_node(); entity_tag; entity_tag = entity_tag->next_sibling())
 		{
@@ -115,7 +118,7 @@ namespace OMG_Engine {
 				{
 					if (child->type() == node_element)
 					{
-						if (string(entity->name()) == "components")
+						if (string(child->name()) == "components")	//if (string(entity->name()) == "components")
 						{
 							if (!parse_components(child, *entity)) return false;
 						}
@@ -127,9 +130,14 @@ namespace OMG_Engine {
 		}
 	}
 
+	bool Scene::parse_config(xml_node<>* config_node)
+	{
+		return false;
+	}	
+
 	bool Scene::parse_components(xml_node<> * component_tag, Entity & entity)
 	{
-		const string type;
+		const char * type;
 
 		for
 			(
@@ -144,22 +152,22 @@ namespace OMG_Engine {
 			}
 		}
 
-		if (type.empty()) return false;
+		if (type == "") return false;
 
-		// SI NO EXISTE UN MÓDULO QUE SE NECESITA, SE CREA Y SE GUARDA:
+		// Creates and saves a new Module if there isn't
 
 		if (modules.count(type) == 0)
 		{
 			modules[type].reset(Module::create(type, this));
 		}
 
-		// SE CACHEA EL PUNTERO AL MÓDULO QUE SE VA A USAR:
+		// Cache the pointer to the Module which is going to be used
 
 		Module * module = modules[type].get();
 
 		if (!module) return false;
 
-		// SE CREA EL COMPONENTE:
+		// Create the component
 
 		shared_ptr< Component > component(module->create_componet(&entity));
 
