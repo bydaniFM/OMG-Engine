@@ -32,7 +32,7 @@ namespace OMG_Engine {
 		{
 			for (auto & component : components)
 			{
-				component->initialize(this);
+				component.second->initialize(this);
 			}
 		}
 
@@ -40,7 +40,7 @@ namespace OMG_Engine {
 		{
 			for (auto & component : components)
 			{
-				component->update(deltaTime);
+				component.second->update(deltaTime);
 			}
 		}
 

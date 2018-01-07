@@ -27,7 +27,7 @@ namespace OMG_Engine {
 
 	public:
 
-		static void register (const string & id, Module_Factory factory)
+		static void (const string & id, Module_Factory factory)	//register
 		{
 			module_registry[id] = factory;
 		}

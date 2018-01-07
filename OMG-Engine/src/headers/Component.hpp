@@ -25,7 +25,7 @@ namespace OMG_Engine {
 		{
 		}
 
-		virtual void initialize() = 0;
+		virtual void initialize(Entity * entity) = 0;
 		virtual void update(float deltaTime) = 0;
 		virtual bool parse(xml_node<> * node) { }
 
