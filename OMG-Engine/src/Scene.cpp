@@ -17,6 +17,10 @@ using namespace std;
 
 namespace OMG_Engine {
 
+	void Scene::add_default_entity() {
+		entities["default"].reset(new Entity(this));
+	}
+
 	bool Scene::load_scene(const string & scene_file_path)
 	{
 		// Read file content

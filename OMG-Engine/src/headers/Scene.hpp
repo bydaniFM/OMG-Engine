@@ -52,6 +52,8 @@ namespace OMG_Engine {
 			kernel.execute();
 		}
 
+		void add_default_entity();
+
 	private:
 
 		bool load_scene(const string & scene_file_path);

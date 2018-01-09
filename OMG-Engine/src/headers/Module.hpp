@@ -13,6 +13,7 @@ Subject to the license described in LICENSE file
 #include <map>
 #include <string>
 #include <Scene.hpp>
+#include <Component.hpp>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ namespace OMG_Engine {
 
 	public:
 
-		static void (const string & id, Module_Factory factory)	//register
+		static void register_module (const string & id, Module_Factory factory)	//register
 		{
 			module_registry[id] = factory;
 		}
@@ -44,7 +45,7 @@ namespace OMG_Engine {
 
 	public:
 
-		virtual shared_ptr< Compoment > create_component(Entity * entity) = 0;
+		virtual shared_ptr< Component > create_component(Entity * entity) = 0;
 
 
 	};
