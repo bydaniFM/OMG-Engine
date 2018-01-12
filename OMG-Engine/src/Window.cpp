@@ -32,7 +32,7 @@ namespace OMG_Engine
 
 	void Window::Close()
 	{
-		//SDL_QUIT;    ^ ?
+		//SDL_Quit ();
 		SDL_DestroyWindow(window);	//?
 	}
 
@@ -72,7 +72,7 @@ namespace OMG_Engine
 
 	void Window::SwapBuffers()
 	{
-
+		SDL_GL_SwapWindow(window);
 	}
 
 }

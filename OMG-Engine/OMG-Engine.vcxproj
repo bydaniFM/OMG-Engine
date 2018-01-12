@@ -19,10 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\headers\TransformComponent.hpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Scene.cpp" />
-    <ClCompile Include="src\Task.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -30,17 +26,6 @@
     <Xml Include="src\Scene2.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\headers\Component.hpp" />
-    <ClInclude Include="src\headers\ControlComponent.hpp" />
-    <ClInclude Include="src\headers\Dispatcher.hpp" />
-    <ClInclude Include="src\headers\Entity.hpp" />
-    <ClInclude Include="src\headers\Kernel.hpp" />
-    <ClInclude Include="src\headers\Message.hpp" />
-    <ClInclude Include="src\headers\Module.hpp" />
-    <ClInclude Include="src\headers\RenderModule.hpp" />
-    <ClInclude Include="src\headers\Scene.hpp" />
-    <ClInclude Include="src\headers\Task.hpp" />
-    <ClInclude Include="src\headers\Variant.hpp" />
     <ClInclude Include="src\headers\Window.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

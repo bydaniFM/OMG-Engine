@@ -18,12 +18,14 @@ Subject to the license described in LICENSE file
 
 using namespace std;
 
-namespace rapidxml
-{
-	template<class Ch = char> class xml_node;
-}
+//namespace rapidxml
+//{
+//	template<class Ch = char> class xml_node;
+//}
 
 namespace OMG_Engine {
+
+	template<class Ch = char> class xml_node;
 
 	class Scene
 	{

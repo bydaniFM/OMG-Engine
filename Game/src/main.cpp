@@ -7,18 +7,33 @@ Copyright (c) 2017 OMG-Engine
 Subject to the license described in LICENSE file
 */
 
-#include <Scene.hpp>
+#include <Window.hpp>
+//#include <Scene.hpp>
 
-int main() {
+namespace OMG_Engine {
 
-	OMG_Engine::Scene scene("scene.xml");
+	extern "C"
+	{
 
-	scene.run();
+		int SDL_main(int number_of_arguments, char * arguments[])
+		{
+			// initialize
 
-	/*OMG_Engine::Task task;
+			//crear ventana
+			Window window("Demo game", 1024, 768);
 
-	task.dump();*/
+			//Scene menu_scene("scenes/main-menu.xml");
 
+			//menu_scene.run();
 
+			// cleanup
 
+			while (true)
+			{
+				window.SwapBuffers();
+			}
+
+			return 0;
+		}
+	}
 }
