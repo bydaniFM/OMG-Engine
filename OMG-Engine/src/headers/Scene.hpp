@@ -12,27 +12,26 @@ Subject to the license described in LICENSE file
 #include <string>
 #include <map>
 #include <memory>
-#include <Kernel.hpp>
+//#include <Kernel.hpp>
 #include <Entity.hpp>
-#include <Module.hpp>
+//#include <Module.hpp>
 
 using namespace std;
 
-//namespace rapidxml
-//{
-//	template<class Ch = char> class xml_node;
-//}
-
 namespace OMG_Engine {
 
-	template<class Ch = char> class xml_node;
+	namespace rapidxml
+	{
+		template<class Ch = char>
+		class xml_node;	//: public xml_base<Ch>
+	}
 
 	class Scene
 	{
 
-		Kernel kernel;
+		//Kernel kernel;
 		map< string, shared_ptr< Entity > > entities;
-		map< string, shared_ptr< Module > > modules;
+		//map< string, shared_ptr< Module > > modules;
 
 	public:
 
@@ -51,7 +50,7 @@ namespace OMG_Engine {
 
 		void run()
 		{
-			kernel.execute();
+			//kernel.execute();
 		}
 
 		void add_default_entity();
@@ -64,9 +63,9 @@ namespace OMG_Engine {
 
 		bool parse_entities(xml_node<>* entities_node);
 
-		bool parse_config(xml_node<>* config_node);
+		//bool parse_config(xml_node<>* config_node);
 
-		bool parse_components(xml_node<>* component_tag, Entity & entity);
+		//bool parse_components(xml_node<>* component_tag, Entity & entity);
 
 		void init_kernel()
 		{

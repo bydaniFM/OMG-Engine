@@ -78,14 +78,14 @@ namespace OMG_Engine {
 				{
 					parse_entities(child);
 				}
-				else if (string(child->name()) == "config")
-				{
-					parse_config(child);
-				}
-				else if (string(child->name()) == "components")
-				{
-					//parse_components(child, [CHILD ENTITY]);
-				}
+				//else if (string(child->name()) == "config")
+				//{
+				//	parse_config(child);
+				//}
+				//else if (string(child->name()) == "components")
+				//{
+				//	//parse_components(child, [CHILD ENTITY]);
+				//}
 				//...
 			}
 		}
@@ -118,27 +118,29 @@ namespace OMG_Engine {
 
 				shared_ptr< Entity > entity(new Entity(this));
 
-				for (xml_node<> * child = entity_tag->first_node(); child; child = child->next_sibling())
-				{
-					if (child->type() == node_element)
-					{
-						if (string(child->name()) == "components")	//if (string(entity->name()) == "components")
-						{
-							if (!parse_components(child, *entity)) return false;
-						}
-					}
-				}
+				//for (xml_node<> * child = entity_tag->first_node(); child; child = child->next_sibling())
+				//{
+				//	if (child->type() == node_element)
+				//	{
+				//		if (string(child->name()) == "components")	//if (string(entity->name()) == "components")
+				//		{
+				//			if (!parse_components(child, *entity)) return false;
+				//		}
+				//	}
+				//}
 
 				entities[name] = entity;
 			}
 		}
 	}
 
+	/*
 	bool Scene::parse_config(xml_node<>* config_node)
 	{
 		return false;
-	}	
-
+	}
+	*/
+	/*
 	bool Scene::parse_components(xml_node<> * component_tag, Entity & entity)
 	{
 		const char * type;
@@ -181,5 +183,5 @@ namespace OMG_Engine {
 
 		entity.add_component(type, component);
 	}
-
+	*/
 }

@@ -10,7 +10,7 @@ Subject to the license described in LICENSE file
 #pragma once
 
 #include <map>
-#include <Component.hpp>
+//#include <Component.hpp>
 
 namespace OMG_Engine {
 
@@ -18,7 +18,7 @@ namespace OMG_Engine {
 
 	class Entity
 	{
-		map< string, shared_ptr< Component > > components;
+		//map< string, shared_ptr< Component > > components;
 
 		Scene * parent;
 
@@ -30,24 +30,24 @@ namespace OMG_Engine {
 
 		void initialize()
 		{
-			for (auto & component : components)
+			/*for (auto & component : components)
 			{
 				component.second->initialize(this);
-			}
+			}*/
 		}
 
 		void update(float deltaTime)
 		{
-			for (auto & component : components)
+			/*for (auto & component : components)
 			{
 				component.second->update(deltaTime);
-			}
+			}*/
 		}
 
-		void add_component(const string & name, shared_ptr< Component > & component)
+		/*void add_component(const string & name, shared_ptr< Component > & component)
 		{
 			components[name] = component;
-		}
+		}*/
 
 	};
 

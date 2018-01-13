@@ -7,8 +7,9 @@ Copyright (c) 2017 OMG-Engine
 Subject to the license described in LICENSE file
 */
 
+#include <iostream>
 #include <Window.hpp>
-//#include <Scene.hpp>
+#include <Scene.hpp>
 
 namespace OMG_Engine {
 
@@ -22,16 +23,18 @@ namespace OMG_Engine {
 			//crear ventana
 			Window window("Demo game", 1024, 768);
 
-			//Scene menu_scene("scenes/main-menu.xml");
+			Scene menu_scene("scenes/main-menu.xml");
 
 			//menu_scene.run();
 
 			// cleanup
 
-			while (true)
+			/*while (true)
 			{
 				window.SwapBuffers();
-			}
+			}*/
+
+			getchar();
 
 			return 0;
 		}
