@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+#Custom
+*.tlog
+*.idb
+*.pdb
+
 # User-specific files
 *.suo
 *.user
@@ -14,15 +19,15 @@
 
 # Build results
 #[Dd]ebug/
-#[Dd]ebugPublic/
-#[Rr]elease/
-#[Rr]eleases/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
 #x64/
-#x86/
-#bld/
-#[Bb]in/
-#[Oo]bj/
-#[Ll]og/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
 
 # Visual Studio 2015 cache/options directory
 .vs/
