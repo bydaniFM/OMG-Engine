@@ -9,12 +9,19 @@ Subject to the license described in LICENSE file
 
 #pragma once
 
+namespace rapidxml
+{
+	template<class Ch>
+	class xml_node;
+}
+
 namespace OMG_Engine {
 
 	class Entity;
 
 	class Component
 	{
+
 	protected:
 
 		const Entity * parent;
@@ -27,7 +34,7 @@ namespace OMG_Engine {
 
 		virtual void initialize(Entity * entity) = 0;
 		virtual void update(float deltaTime) = 0;
-		virtual bool parse(xml_node<> * node) { }
+		virtual bool parse(rapidxml::xml_node<char> * node) { }
 
 	};
 

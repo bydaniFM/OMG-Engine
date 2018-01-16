@@ -27,6 +27,7 @@
     <Xml Include="src\Scene2.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\headers\Component.hpp" />
     <ClInclude Include="src\headers\Entity.hpp" />
     <ClInclude Include="src\headers\Scene.hpp" />
     <ClInclude Include="src\headers\Window.hpp" />

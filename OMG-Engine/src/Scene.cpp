@@ -127,16 +127,17 @@ namespace OMG_Engine {
 				shared_ptr< Entity > entity(new Entity(this));
 				name = entity_tag->first_attribute()->value();
 
-				//for (xml_node<> * child = entity_tag->first_node(); child; child = child->next_sibling())
-				//{
-				//	if (child->type() == node_element)
-				//	{
-				//		if (string(child->name()) == "components")	//if (string(entity->name()) == "components")
-				//		{
-				//			if (!parse_components(child, *entity)) return false;
-				//		}
-				//	}
-				//}
+				for (xml_node<> * child = entity_tag->first_node(); child; child = child->next_sibling())
+				{
+					if (child->type() == node_element)
+					{
+						if (string(child->name()) == "components")	//if (string(entity->name()) == "components")
+						{
+							if (!parse_components(child, *entity))
+								return false;
+						}
+					}
+				}
 
 				entities[name] = entity;
 				cout << "Parsed enity: " << name << endl;
@@ -152,12 +153,12 @@ namespace OMG_Engine {
 		return false;
 	}
 	*/
-	/*
-	bool Scene::parse_components(xml_node<> * component_tag, Entity & entity)
+	
+	bool Scene::parse_components(xml_node<> * components, Entity & entity)
 	{
-		const char * type;
+		char * type = "";
 
-		for
+		/*for
 			(
 				xml_attribute<> * attribute = component_tag->first_attribute();
 				attribute;
@@ -170,10 +171,24 @@ namespace OMG_Engine {
 			}
 		}
 
-		if (type == "") return false;
+		if (type == "") return false;*/
+
+		for (xml_node<> * component_tag = components->first_node(); component_tag; component_tag = component_tag->next_sibling())
+		{
+			if (component_tag->type() == node_element)
+			{
+				if (string(component_tag->name()) != "component") return false;
+				//Crear componente en vez de esto?
+				//shared_ptr< Entity > entity(new Entity(this));
+				type = component_tag->first_attribute()->value();
+
+				cout << "Parsing component: " << type << endl;
+
+			}
+		}
 
 		// Creates and saves a new Module if there isn't
-
+		/*
 		if (modules.count(type) == 0)
 		{
 			modules[type].reset(Module::create(type, this));
@@ -184,16 +199,19 @@ namespace OMG_Engine {
 		Module * module = modules[type].get();
 
 		if (!module) return false;
-
+		*/
 		// Create the component
-
+		/*
 		shared_ptr< Component > component(module->create_componet(&entity));
-
+		
 		if (!component) return false;
 
 		if (!component->parse(component_tag)) return false;
 
 		entity.add_component(type, component);
+		*/
+
+		return true;
 	}
-	*/
+	
 }

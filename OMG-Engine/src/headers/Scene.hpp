@@ -21,7 +21,7 @@ using namespace std;
 namespace rapidxml
 {
 	template<class Ch>
-	class xml_node;	//: public xml_base<Ch>
+	class xml_node;
 }
 
 namespace OMG_Engine {
@@ -67,7 +67,7 @@ namespace OMG_Engine {
 
 		//bool parse_config(xml_node<>* config_node);
 
-		//bool parse_components(xml_node<>* component_tag, Entity & entity);
+		bool parse_components(rapidxml::xml_node<char>* component_tag, Entity & entity);
 
 		void init_kernel()
 		{
