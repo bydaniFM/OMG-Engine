@@ -7,6 +7,7 @@ Copyright (c) 2017 OMG-Engine
 Subject to the license described in LICENSE file
 */
 
+#include <iostream>
 #include <vector>
 #include <fstream>
 #include <Scene.hpp>
@@ -65,7 +66,7 @@ namespace OMG_Engine {
 			}
 		}
 
-		return false;
+		return true;
 	}
 
 	bool Scene::parse_scene(xml_node<> * scene_node)
@@ -89,26 +90,33 @@ namespace OMG_Engine {
 				//...
 			}
 		}
+
+		return true;
 	}
 
 	bool Scene::parse_entities(xml_node<> * entities_node)
 	{
-		const char * name;
+		char * name = "";
+		cout << "Parseando entidades" << endl;
 
-		for
-			(
+		/*for (
+			xml_node<> * entity
+			)*/
+
+		/*for (
 				xml_attribute<> * attribute = entities_node->first_attribute();
 				attribute;
 				attribute = attribute->next_attribute()
-				)
+			)
 		{
+			cout << "Parseando " << string(attribute->name()) << endl;
 			if (string(attribute->name()) == "name")
 			{
 				name = attribute->value();
 			}
-		}
-
-		if (name == "") return false;
+		}*/
+		/*cout << "Name: " << name << endl;
+		if (name == "") return false;*/
 
 		for (xml_node<> * entity_tag = entities_node->first_node(); entity_tag; entity_tag = entity_tag->next_sibling())
 		{
@@ -117,6 +125,7 @@ namespace OMG_Engine {
 				if (string(entity_tag->name()) != "entity") return false;
 
 				shared_ptr< Entity > entity(new Entity(this));
+				name = entity_tag->first_attribute()->value();
 
 				//for (xml_node<> * child = entity_tag->first_node(); child; child = child->next_sibling())
 				//{
@@ -130,8 +139,11 @@ namespace OMG_Engine {
 				//}
 
 				entities[name] = entity;
+				cout << "Parsed enity: " << name << endl;
 			}
 		}
+		
+		return true;
 	}
 
 	/*

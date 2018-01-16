@@ -18,13 +18,15 @@ Subject to the license described in LICENSE file
 
 using namespace std;
 
+namespace rapidxml
+{
+	template<class Ch>
+	class xml_node;	//: public xml_base<Ch>
+}
+
 namespace OMG_Engine {
 
-	namespace rapidxml
-	{
-		template<class Ch = char>
-		class xml_node;	//: public xml_base<Ch>
-	}
+	
 
 	class Scene
 	{
@@ -59,9 +61,9 @@ namespace OMG_Engine {
 
 		bool load_scene(const string & scene_file_path);
 
-		bool parse_scene(xml_node<>* scene_node);
+		bool parse_scene(rapidxml::xml_node<char>* scene_node);
 
-		bool parse_entities(xml_node<>* entities_node);
+		bool parse_entities(rapidxml::xml_node<char>* entities_node);
 
 		//bool parse_config(xml_node<>* config_node);
 

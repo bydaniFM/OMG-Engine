@@ -11,6 +11,8 @@ Subject to the license described in LICENSE file
 #include <Window.hpp>
 #include <Scene.hpp>
 
+using namespace std;
+
 namespace OMG_Engine {
 
 	extern "C"
@@ -23,7 +25,9 @@ namespace OMG_Engine {
 			//crear ventana
 			Window window("Demo game", 1024, 768);
 
-			Scene menu_scene("scenes/main-menu.xml");
+			Scene menu_scene("scenes/scene1.xml");
+
+			cout << "Scene Loaded" << endl;
 
 			//menu_scene.run();
 
