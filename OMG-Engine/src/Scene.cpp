@@ -178,39 +178,39 @@ namespace OMG_Engine {
 			if (component_tag->type() == node_element)
 			{
 				if (string(component_tag->name()) != "component") return false;
-				//Crear componente en vez de esto?
-				//shared_ptr< Entity > entity(new Entity(this));
+
 				type = component_tag->first_attribute()->value();
 
 				cout << "Parsing component: " << type << endl;
 
+				// Creates and saves a new Module if there isn't
+
+				if (modules.count(type) == 0)
+				{
+					modules[type].reset(Module::create(type, this));
+					//modules[type].reset();
+					//modules[type] = Module::create(type, this);
+				}
+
+				//// Cache the pointer to the Module which is going to be used
+
+				//Module * module = modules[type].get();
+
+				//if (!module) return false;
+
+				//// Create the component
+				//
+				//shared_ptr< Component > component(module->create_component(&entity));
+
+				//if (!component) return false;
+
+				//if (!component->parse(component_tag)) return false;
+
+				//entity.add_component(type, component);
+				
+
 			}
 		}
-
-		// Creates and saves a new Module if there isn't
-		/*
-		if (modules.count(type) == 0)
-		{
-			modules[type].reset(Module::create(type, this));
-		}
-
-		// Cache the pointer to the Module which is going to be used
-
-		Module * module = modules[type].get();
-
-		if (!module) return false;
-		*/
-		// Create the component
-		/*
-		shared_ptr< Component > component(module->create_componet(&entity));
-		
-		if (!component) return false;
-
-		if (!component->parse(component_tag)) return false;
-
-		entity.add_component(type, component);
-		*/
-
 		return true;
 	}
 	

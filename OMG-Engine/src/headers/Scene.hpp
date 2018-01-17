@@ -14,7 +14,7 @@ Subject to the license described in LICENSE file
 #include <memory>
 //#include <Kernel.hpp>
 #include <Entity.hpp>
-//#include <Module.hpp>
+#include <Module.hpp>
 
 using namespace std;
 
@@ -33,7 +33,7 @@ namespace OMG_Engine {
 
 		//Kernel kernel;
 		map< string, shared_ptr< Entity > > entities;
-		//map< string, shared_ptr< Module > > modules;
+		map< string, shared_ptr< Module > > modules;
 
 	public:
 

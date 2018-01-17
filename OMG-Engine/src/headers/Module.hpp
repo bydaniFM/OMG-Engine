@@ -12,12 +12,14 @@ Subject to the license described in LICENSE file
 #include <memory>
 #include <map>
 #include <string>
-#include <Scene.hpp>
+// <Scene.hpp>
 #include <Component.hpp>
 
 using namespace std;
 
-namespace OMG_Engine {
+namespace OMG_Engine
+{
+	class Scene;
 
 	class Module
 	{
