@@ -21,6 +21,8 @@ namespace OMG_Engine
 {
 	class Scene;
 
+	class Render_Module;
+
 	class Module
 	{
 
@@ -41,8 +43,22 @@ namespace OMG_Engine
 			{
 				return module_registry[id](scene);
 			}
+			else 
+			{
+				if (id == "render") {
+					return Render_Module::create(scene);
+				}
+			}
 
 			return shared_ptr< Module >();
+		}
+
+	protected:
+
+		Scene * scene;
+
+		Module(Scene * scene) : scene(scene)
+		{
 		}
 
 	public:
@@ -51,5 +67,36 @@ namespace OMG_Engine
 
 
 	};
+
+	// -----------------------------------------------------------------------------------
+
+	class Render_Module : public Module
+	{
+	public:
+		static shared_ptr< Module > create(Scene * scene)
+		{
+			return shared_ptr< Module >(new Render_Module(scene));
+		}
+
+	private:
+
+		Render_Module(Scene * scene) : Module(scene)
+		{
+		}
+
+	public:
+
+		shared_ptr< Component > create_component(Entity * entity)
+		{
+
+		}
+
+	};
+
+
+	// -----------------------------------------------------------------------------------
+
+
+	//Module::register_module("render", Render_Module::create);
 
 }
