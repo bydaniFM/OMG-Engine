@@ -43,12 +43,12 @@ namespace OMG_Engine
 			{
 				return module_registry[id](scene);
 			}
-			else 
+			/*else 
 			{
 				if (id == "render") {
 					return Render_Module::create(scene);
 				}
-			}
+			}*/
 
 			return shared_ptr< Module >();
 		}

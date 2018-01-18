@@ -187,10 +187,10 @@ namespace OMG_Engine {
 
 				if (modules.count(type) == 0)
 				{
-					modules[type] = Module::create(type, this);
+					/*modules[type] = Module::create(type, this);
 					if (modules[type] == nullptr) {
 						cout << "No existe el módulo: " << type << endl;
-					}
+					}*/
 				}
 
 				//// Cache the pointer to the Module which is going to be used
