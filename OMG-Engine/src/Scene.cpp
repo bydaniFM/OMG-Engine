@@ -188,7 +188,7 @@ namespace OMG_Engine {
 				if (modules.count(type) == 0)
 				{
 					/*modules[type] = Module::create(type, this);
-					if (modules[type] == nullptr) {
+					if (!modules[type]) {
 						cout << "No existe el módulo: " << type << endl;
 					}*/
 				}

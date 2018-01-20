@@ -15,7 +15,8 @@ namespace rapidxml
 	class xml_node;
 }
 
-namespace OMG_Engine {
+namespace OMG_Engine
+{
 
 	class Entity;
 
@@ -34,7 +35,7 @@ namespace OMG_Engine {
 
 		virtual void initialize(Entity * entity) = 0;
 		virtual void update(float deltaTime) = 0;
-		virtual bool parse(rapidxml::xml_node<char> * node) { }
+		//virtual bool parse(rapidxml::xml_node<char> * node) { }
 
 	};
 

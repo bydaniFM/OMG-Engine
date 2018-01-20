@@ -43,12 +43,6 @@ namespace OMG_Engine
 			{
 				return module_registry[id](scene);
 			}
-			/*else 
-			{
-				if (id == "render") {
-					return Render_Module::create(scene);
-				}
-			}*/
 
 			return shared_ptr< Module >();
 		}
@@ -70,7 +64,7 @@ namespace OMG_Engine
 
 	// -----------------------------------------------------------------------------------
 
-	class Render_Module : public Module
+	/*class Render_Module : public Module
 	{
 	public:
 		static shared_ptr< Module > create(Scene * scene)
@@ -88,10 +82,10 @@ namespace OMG_Engine
 
 		shared_ptr< Component > create_component(Entity * entity)
 		{
-
+			return nullptr;
 		}
 
-	};
+	};*/
 
 
 	// -----------------------------------------------------------------------------------

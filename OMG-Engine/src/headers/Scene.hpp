@@ -14,7 +14,9 @@ Subject to the license described in LICENSE file
 #include <memory>
 //#include <Kernel.hpp>
 #include <Entity.hpp>
-#include <Module.hpp>
+//#include <Module.hpp>
+#include <Render_Module.hpp>
+#include <Transform_Module.hpp>
 
 using namespace std;
 
@@ -39,6 +41,9 @@ namespace OMG_Engine {
 
 		Scene(const string & scene_file_path)
 		{
+			/*Module::register_module("render", Render_Module::create);
+			Module::register_module("transform", Render_Module::create);*/
+
 			load_scene(scene_file_path);
 
 			/*Read_Input_Task 	read_input_task;
