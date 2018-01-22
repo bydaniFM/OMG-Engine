@@ -41,8 +41,8 @@ namespace OMG_Engine {
 
 		Scene(const string & scene_file_path)
 		{
-			/*Module::register_module("render", Render_Module::create);
-			Module::register_module("transform", Render_Module::create);*/
+			Module::register_module("render", Render_Module::create);
+			Module::register_module("transform", Render_Module::create);
 
 			load_scene(scene_file_path);
 

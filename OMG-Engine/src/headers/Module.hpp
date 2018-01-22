@@ -22,7 +22,7 @@ namespace OMG_Engine
 	class Scene;
 
 	class Render_Module;
-
+	
 	class Module
 	{
 
