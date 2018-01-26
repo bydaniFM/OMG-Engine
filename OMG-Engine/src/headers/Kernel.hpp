@@ -16,40 +16,59 @@ namespace OMG_Engine {
 
 	class Kernel
 	{
-		typedef std::list< Task * > Task_List;
+		/*typedef std::list< Task * > Task_List;
+		Task_List task_list;*/
+		std::list< Task * > task_list;
 
-		Task_List task_list;
 		bool      exit;
 
 	public:
 
+		Kernel()
+		{
+			task_list = std::list< Task * >();
+		}
+
 		void execute()
 		{
 			// LLAMAR AL MÉTODO INITIALIZE() DE TODAS LAS TASK
+			for (	auto iterator = task_list.begin();
+					iterator != task_list.end() && !exit;
+					++iterator )
+			{
+				Task * task = *iterator;
+				task->initialize();
+			}
 
 			exit = false;
 
-			for
-				(
-					auto iterator = task_list.begin();
-					iterator != task_list.end() && !exit;
-					++iterator
-					)
+			do
 			{
-				Task * task = *iterator;
 
-				task->run();
-
-				if (task->is_finished())
+				for (auto iterator = task_list.begin();
+					iterator != task_list.end() && !exit;
+					++iterator)
 				{
-					task->finalize();
+					Task * task = *iterator;
 
-					task_list.erase(iterator);
+					task->run();
+
+					if (task->is_finished())
+					{
+						task->finalize();
+
+						task_list.erase(iterator);
+					}
 				}
-			}
 
+			} 
+			while (!exit);
 
 			// LLAMAR AL MÉTODO FINALIZE() DE TODAS LAS TASK
+			for each (Task * task in task_list)
+			{
+				task->finalize();
+			}
 		}
 
 		void stop()

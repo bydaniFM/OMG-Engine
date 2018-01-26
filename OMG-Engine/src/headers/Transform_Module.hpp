@@ -9,6 +9,7 @@ Subject to the license described in LICENSE file
 
 #pragma once
 
+//#include <glm/mat4x4.hpp>
 #include <Module.hpp>
 
 namespace OMG_Engine
@@ -29,6 +30,7 @@ namespace OMG_Engine
 		class Transform_Component : public Component
 		{
 			//Transformation t;
+			//glm::mat4x4 transformation;
 
 		public:
 
@@ -44,9 +46,7 @@ namespace OMG_Engine
 			{
 			}
 
-			/*bool parse(xml_node<> * node)
-			{
-			}*/
+			bool parse(rapidxml::xml_node<char> * node);
 
 			/*void move(v);
 

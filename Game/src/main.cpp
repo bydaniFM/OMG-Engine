@@ -29,14 +29,13 @@ namespace OMG_Engine {
 
 			cout << "Scene Loaded" << endl;
 
-			//menu_scene.run();
-
 			// cleanup
 
 			/*while (true)
-			{
+			{*/
+				menu_scene.run();
 				window.SwapBuffers();
-			}*/
+			//}
 
 			getchar();
 

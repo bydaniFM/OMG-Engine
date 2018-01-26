@@ -38,7 +38,7 @@ namespace OMG_Engine {
 			{
 			}
 
-			//bool parse(xml_node<> * node);
+			bool parse(rapidxml::xml_node<char> * node);
 		};
 
 	private:

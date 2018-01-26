@@ -12,8 +12,8 @@ Subject to the license described in LICENSE file
 #include <iostream>
 #include <list>
 
-namespace OMG_Engine {
-
+namespace OMG_Engine
+{
 	class Task
 	{
 
@@ -49,6 +49,11 @@ namespace OMG_Engine {
 		{
 			return this->priority > other.priority;
 		}
+
+		/*bool operator == (const Task & other) const
+		{
+			return this->priority == other.priority;
+		}*/
 
 		//...
 	};
@@ -120,7 +125,8 @@ namespace OMG_Engine {
 		}
 	};
 
-	class Read_Input_Task : public Task
+	//Read_Input_Task
+	/*class Read_Input_Task : public Task
 	{
 	public:
 
@@ -129,6 +135,6 @@ namespace OMG_Engine {
 		}
 
 		void run();
-	};
+	};*/
 
 }

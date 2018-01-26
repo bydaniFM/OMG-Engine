@@ -12,11 +12,12 @@ Subject to the license described in LICENSE file
 #include <string>
 #include <map>
 #include <memory>
-//#include <Kernel.hpp>
+#include <Kernel.hpp>
 #include <Entity.hpp>
 //#include <Module.hpp>
 #include <Render_Module.hpp>
 #include <Transform_Module.hpp>
+#include <ReadInput_Task.hpp>
 
 using namespace std;
 
@@ -28,26 +29,31 @@ namespace rapidxml
 
 namespace OMG_Engine {
 
-	
+	//class ReadInput_Task;
 
 	class Scene
 	{
 
-		//Kernel kernel;
+		Kernel kernel;
 		map< string, shared_ptr< Entity > > entities;
 		map< string, shared_ptr< Module > > modules;
+
+		ReadInput_Task read_input_task;
+
 
 	public:
 
 		Scene(const string & scene_file_path)
 		{
+			kernel = Kernel();
+
 			Module::register_module("render", Render_Module::create);
 			Module::register_module("transform", Render_Module::create);
 
 			load_scene(scene_file_path);
 
-			/*Read_Input_Task 	read_input_task;
-			Update_Physics_Task update_physics_task;
+			kernel.add(read_input_task);
+			/*Update_Physics_Task update_physics_task;
 			...
 
 				kernel.add(&read_input_task);
@@ -57,7 +63,7 @@ namespace OMG_Engine {
 
 		void run()
 		{
-			//kernel.execute();
+			kernel.execute();
 		}
 
 		void add_default_entity();

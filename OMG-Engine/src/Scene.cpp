@@ -187,28 +187,29 @@ namespace OMG_Engine {
 
 				if (modules.count(type) == 0)
 				{
-					/*modules[type] = Module::create(type, this);
+					modules[type] = Module::create(type, this);
 					if (!modules[type]) {
 						cout << "No existe el módulo: " << type << endl;
-					}*/
+					}
 				}
 
-				//// Cache the pointer to the Module which is going to be used
+				// Cache the pointer to the Module which is going to be used
 
-				//Module * module = modules[type].get();
+				Module * module = modules[type].get();
 
-				//if (!module) return false;
+				if (!module) return false;
 
-				//// Create the component
-				//
-				//shared_ptr< Component > component(module->create_component(&entity));
-
-				//if (!component) return false;
-
-				//if (!component->parse(component_tag)) return false;
-
-				//entity.add_component(type, component);
+				// Create the component
 				
+				shared_ptr< Component > component(module->create_component(&entity));
+
+				if (!component) return false;
+
+				if (!component->parse(component_tag)) return false;
+
+				entity.add_component(type, component);
+				
+				cout << "component parsed" << endl;
 
 			}
 		}

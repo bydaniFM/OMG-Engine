@@ -3,23 +3,23 @@
 	<entities>
 		<entity name="robot">
 			<components>
-				<!-- <component type="transform">
+				<component type="transform">
 					<position>0,0,0</position>
 					<scale>2.1</scale>
-				</component> -->
+				</component>
 				<component type="render">
 					<mesh>robot.obj</mesh>
 					<material>metal.mtl</material>
 				</component>
 			</components>
 		</entity>
-		<!-- <entity name = "dummy">
+		<entity name = "dummy">
 			<components>
 				<component type="transform">
 					<position>0,0,0</position>
 					<scale>2.1</scale>
 				</component>
 			</components>
-		</entity> -->
+		</entity>
 	</entities>
 </scene>

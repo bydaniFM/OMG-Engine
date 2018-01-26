@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Module.cpp" />
+    <ClCompile Include="src\Render_Module.cpp" />
     <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\Transform_Module.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -30,9 +32,12 @@
   <ItemGroup>
     <ClInclude Include="src\headers\Component.hpp" />
     <ClInclude Include="src\headers\Entity.hpp" />
+    <ClInclude Include="src\headers\Kernel.hpp" />
     <ClInclude Include="src\headers\Module.hpp" />
+    <ClInclude Include="src\headers\ReadInput_Task.hpp" />
     <ClInclude Include="src\headers\Render_Module.hpp" />
     <ClInclude Include="src\headers\Scene.hpp" />
+    <ClInclude Include="src\headers\Task.hpp" />
     <ClInclude Include="src\headers\Transform_Module.hpp" />
     <ClInclude Include="src\headers\Window.hpp" />
   </ItemGroup>
@@ -116,7 +121,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Libraries/SDL2-2.0.7/include;Libraries/gml/gml;Libraries/rapidxml;src/headers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Libraries/SDL2-2.0.7/include;Libraries/glm;Libraries/rapidxml;src/headers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
