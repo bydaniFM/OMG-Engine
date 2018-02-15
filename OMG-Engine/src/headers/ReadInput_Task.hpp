@@ -23,17 +23,17 @@ namespace OMG_Engine
 
 		void initialize()
 		{
-			std::cout << "Init Reading Input task" << std::endl;
+			std::cout << "Init Read Input task" << std::endl;
 		}
 
 		void finalize()
 		{
-			std::cout << "Finish Reading Input task" << std::endl;
+			std::cout << "Finish Read Input task" << std::endl;
 		}
 
 		void run()
 		{
-			std::cout << "Reading Input" << std::endl;
+			//std::cout << "Reading Input" << std::endl;
 		}
 
 	};

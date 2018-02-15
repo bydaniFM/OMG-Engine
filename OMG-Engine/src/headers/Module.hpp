@@ -60,6 +60,8 @@ namespace OMG_Engine
 
 		virtual shared_ptr< Component > create_component(Entity * entity) = 0;
 
+		// ??? virtual Task * get_task()
+
 
 	};
 

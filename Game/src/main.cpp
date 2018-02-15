@@ -34,7 +34,7 @@ namespace OMG_Engine {
 			/*while (true)
 			{*/
 				menu_scene.run();
-				window.SwapBuffers();
+				//window.SwapBuffers();
 			//}
 
 			getchar();

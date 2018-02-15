@@ -48,7 +48,7 @@ namespace OMG_Engine {
 			kernel = Kernel();
 
 			Module::register_module("render", Render_Module::create);
-			Module::register_module("transform", Render_Module::create);
+			Module::register_module("transform", Transform_Module::create);
 
 			load_scene(scene_file_path);
 

@@ -31,6 +31,9 @@ namespace OMG_Engine {
 
 		void execute()
 		{
+
+			exit = false;
+
 			// LLAMAR AL MÉTODO INITIALIZE() DE TODAS LAS TASK
 			for (	auto iterator = task_list.begin();
 					iterator != task_list.end() && !exit;
@@ -39,8 +42,6 @@ namespace OMG_Engine {
 				Task * task = *iterator;
 				task->initialize();
 			}
-
-			exit = false;
 
 			do
 			{
